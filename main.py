@@ -21,7 +21,7 @@ def start(message):
     bot.send_message(message.from_user.id, "👋 Привет! Я твой бот-помошник!", reply_markup=markup)
 
 
-@bot.message_handler(content_types=["text"])
+@bot.message_handler(content_types=['text'])
 def repeat_our_message(message):
     bot.send_message(message.chat.id, message.text)
 
