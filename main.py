@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from telebot import types
 from google.cloud import dialogflow
+from create_intent_using_json import create_intent_using_json
 
 import telebot
 import os
@@ -42,4 +43,7 @@ def repeat_our_message(message):
 
 
 if __name__ == '__main__':
+    if input('Do you wanna create an intent?(y/n)\n') == 'y':
+        create_intent_using_json('phrases.json')
+
     bot.infinity_polling()
