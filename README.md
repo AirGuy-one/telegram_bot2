@@ -9,11 +9,12 @@ USER_TG_CHAT_ID=123456789
 GOOGLE_APPLICATION_CREDENTIALS='some_nameUBUguGyubbO.json'
 DIALOG_FLOW_PROJECT_ID='name_of_project'
 ```
-2. Установите зависимости
+2. Возьмите в GOOGLE_APPLICATION_CREDENTIALS json файл со всеми данными, необходимыми для работы с api и скопируйте его себе в репозиторий.
+3. Установите зависимости
 ```sh
 pip install -r requirements.txt
 ```
-3. Запустить файл локально, выпонив команду
+4. Запустить файл локально, выпонив команду
 ```sh
 python3 tg_bot.py
 ```
@@ -26,11 +27,12 @@ GOOGLE_APPLICATION_CREDENTIALS='some_nameUBUguGyubbO.json'
 DIALOG_FLOW_PROJECT_ID='name_of_project'
 VK_GROUP_TOKEN='token_of_your_group_in_vk'
 ```
-2. Установите зависимости
+2. Возьмите в GOOGLE_APPLICATION_CREDENTIALS json файл со всеми данными, необходимыми для работы с api и скопируйте его себе в репозиторий.
+3. Установите зависимости
 ```sh
 pip install -r requirements.txt
 ```
-3. Запустить файл локально, выпонив команду
+4. Запустить файл локально, выпонив команду
 ```sh
 python3 vk_bot.py
 ```
