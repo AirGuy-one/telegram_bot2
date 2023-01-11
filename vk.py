@@ -31,13 +31,14 @@ for event in longpoll.listen():
                     request={"session": session, "query_input": query_input}
                 )
 
-                answer = response.query_result.fulfillment_text
+                if not response.query_result.intent.is_fallback:
+                    answer = response.query_result.fulfillment_text
 
-                vk_session.method('messages.send', {
-                    'user_id': event.user_id,
-                    'message': answer,
-                    'random_id': 0
-                })
+                    vk_session.method('messages.send', {
+                        'user_id': event.user_id,
+                        'message': answer,
+                        'random_id': 0
+                    })
         else:
             print('От меня для: ', event.user_id)
             print('Текст:', answer)
