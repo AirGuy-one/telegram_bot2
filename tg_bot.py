@@ -45,5 +45,7 @@ def tg_bot_start():
     # If you want to create an intent, uncomment following two rows of code
     # from create_intent_using_json import create_intent_using_json
     # create_intent_using_json('phrases.json')
-
-    bot.infinity_polling()
+    try:
+        bot.infinity_polling()
+    except Exception as e:
+        bot.send_message(os.environ['USER_TG_CHAT_ID'], str(e))
