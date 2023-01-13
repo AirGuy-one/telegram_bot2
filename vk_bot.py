@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-vk_session = vk_api.VkApi(token='vk1.a.fec1JeYAUv4wcvI_zm4bNij4g6EqbyKnFeyg-bV_1ToHqV_1ZTdDdPbZcrFUn_Jhh0QFGRwvkrVkIbJTkBOj7z6SsAJdE3kWgRQq0PZ4yDUYE_ndLdSmqRzjPjhTBSHHAOoU7qA0q_k3muDpOqDrGkd6sQGothelyPRV-4G-7T7ILeaKaWyUts9-fEqyRrl7VWXrtTmeOtgTXesW-CQuSw')
+vk_session = vk_api.VkApi(token=os.environ['VK_GROUP_TOKEN'])
 
 longpoll = VkLongPoll(vk_session)
 
@@ -42,8 +42,3 @@ for event in longpoll.listen():
         else:
             print('От меня для: ', event.user_id)
             print('Текст:', answer)
-
-
-
-
-
