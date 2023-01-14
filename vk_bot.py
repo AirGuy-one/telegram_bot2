@@ -4,9 +4,7 @@ import telebot
 
 from vk_api.longpoll import VkLongPoll, VkEventType
 from google.cloud import dialogflow
-from dotenv import load_dotenv
 
-load_dotenv()
 
 vk_session = vk_api.VkApi(token=os.environ['VK_GROUP_TOKEN'])
 

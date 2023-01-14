@@ -1,12 +1,9 @@
-from dotenv import load_dotenv
 from telebot import types
 from google.cloud import dialogflow
 
 import telebot
 import os
 
-
-load_dotenv()
 
 bot = telebot.TeleBot(
     os.environ.get('TG_BOT_TOKEN')
