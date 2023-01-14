@@ -20,11 +20,8 @@ def vk_bot_start():
         for event in longpoll.listen():
             global answer
             if event.type == VkEventType.MESSAGE_NEW:
-                print('Новое сообщение:')
                 if event.to_me:
-                    print('Для меня от: ', event.user_id)
                     answer = event.text
-                    print('Текст:', answer)
                     if event.from_user:
                         session_client = dialogflow.SessionsClient()
                         session = session_client.session_path(
@@ -45,8 +42,5 @@ def vk_bot_start():
                                 'message': answer,
                                 'random_id': 0
                             })
-                else:
-                    print('От меня для: ', event.user_id)
-                    print('Текст:', answer)
     except Exception as e:
         bot.send_message(os.environ['USER_TG_CHAT_ID'], str(e))
