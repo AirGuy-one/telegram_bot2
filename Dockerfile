@@ -4,4 +4,4 @@ COPY . .
 WORKDIR .
 RUN pip install -r requirements.txt
 
-CMD ["python3", "both_bots_start.py"]
+CMD ["python3", "main.py"]
