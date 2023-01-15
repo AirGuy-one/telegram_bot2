@@ -15,7 +15,7 @@ bot = telebot.TeleBot(
 )
 
 
-def vk_bot_start():
+def launch_vk_bot():
     try:
         for event in longpoll.listen():
             global answer

@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 4. Запустить файл локально, выпонив команду
 ```sh
-python3 both_bots_start.py
+python3 main.py
 ```
 
 Dialogflow — это платформа от Google для понимания естественного языка, которую вы можете использовать для создания омниканальных чат-ботов.

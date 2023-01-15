@@ -38,7 +38,7 @@ def repeat_our_message(message):
     bot.send_message(message.chat.id, response.query_result.fulfillment_text)
 
 
-def tg_bot_start():
+def launch_tg_bot():
     # If you want to create an intent, uncomment following two rows of code
     # from create_intent_using_json import create_intent_using_json
     # create_intent_using_json('phrases.json')
