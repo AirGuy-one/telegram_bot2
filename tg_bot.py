@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 from telebot import types
 from google.cloud import dialogflow
 from google_dialogflow_api import google_dialogflow_api
@@ -6,8 +5,6 @@ from google_dialogflow_api import google_dialogflow_api
 import telebot
 import os
 
-
-load_dotenv()
 
 bot = telebot.TeleBot(
     os.environ.get('TG_BOT_TOKEN')
@@ -18,9 +15,9 @@ bot = telebot.TeleBot(
 def start(message):
 
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    greet_button = types.KeyboardButton('👋 Greet')
-    markup.add(greet_button)
-    bot.send_message(message.from_user.id, 'Hello', reply_markup=markup)
+    btn1 = types.KeyboardButton('👋 Поздороваться')
+    markup.add(btn1)
+    bot.send_message(message.from_user.id, 'Здравствуйте', reply_markup=markup)
 
 
 @bot.message_handler(content_types=['text'])
@@ -31,6 +28,9 @@ def repeat_our_message(message):
 
 
 def launch_tg_bot():
+    # If you want to create an intent, uncomment following two rows of code
+    # from create_intent_using_json import create_intent_using_json
+    # create_intent_using_json('phrases.json')
     try:
         bot.infinity_polling()
     except Exception as e:
