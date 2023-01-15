@@ -1,5 +1,6 @@
 from telebot import types
 from google.cloud import dialogflow
+from google_dialogflow_api import google_dialogflow_api
 
 import telebot
 import os
@@ -21,19 +22,7 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
 def repeat_our_message(message):
-    session_client = dialogflow.SessionsClient()
-    session = session_client.session_path(
-        os.environ['DIALOG_FLOW_PROJECT_ID'],
-        os.environ['USER_TG_CHAT_ID']
-    )
-
-    text_input = dialogflow.TextInput(text=message.text, language_code='en-US')
-
-    query_input = dialogflow.QueryInput(text=text_input)
-
-    response = session_client.detect_intent(
-        request={"session": session, "query_input": query_input}
-    )
+    response = google_dialogflow_api(message.text)
 
     bot.send_message(message.chat.id, response.query_result.fulfillment_text)
 
