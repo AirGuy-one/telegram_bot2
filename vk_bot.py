@@ -3,20 +3,18 @@ import os
 import telebot
 
 from vk_api.longpoll import VkLongPoll, VkEventType
-from google.cloud import dialogflow
 from google_dialogflow_api import google_dialogflow_api
 
 
-vk_session = vk_api.VkApi(token=os.environ['VK_GROUP_TOKEN'])
-
-longpoll = VkLongPoll(vk_session)
-
-bot = telebot.TeleBot(
-    os.environ.get('TG_BOT_TOKEN')
-)
-
-
 def launch_vk_bot():
+    vk_session = vk_api.VkApi(token=os.environ['VK_GROUP_TOKEN'])
+
+    longpoll = VkLongPoll(vk_session)
+
+    bot = telebot.TeleBot(
+        os.environ.get('TG_BOT_TOKEN')
+    )
+
     try:
         for event in longpoll.listen():
             global answer
