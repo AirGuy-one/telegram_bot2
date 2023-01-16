@@ -1,5 +1,5 @@
 from telebot import types
-from google_dialogflow_api import google_dialogflow_api
+from reply_using_dialogflow_api import reply_using_dialogflow_api
 from dotenv import load_dotenv
 
 import telebot
@@ -22,7 +22,7 @@ def main():
 
     @bot.message_handler(content_types=['text'])
     def repeat_our_message(message):
-        response = google_dialogflow_api(message.text)
+        response = reply_using_dialogflow_api(message.text)
 
         bot.send_message(message.chat.id, response.query_result.fulfillment_text)
 

@@ -3,7 +3,7 @@ from google.cloud import dialogflow
 import os
 
 
-def google_dialogflow_api(message):
+def reply_using_dialogflow_api(message):
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(
         os.environ['DIALOG_FLOW_PROJECT_ID'],

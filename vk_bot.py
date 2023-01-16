@@ -1,5 +1,5 @@
 from vk_api.longpoll import VkLongPoll, VkEventType
-from google_dialogflow_api import google_dialogflow_api
+from reply_using_dialogflow_api import reply_using_dialogflow_api
 from dotenv import load_dotenv
 
 import vk_api
@@ -25,7 +25,7 @@ def main():
                 if event.to_me:
                     answer = event.text
                     if event.from_user:
-                        response = google_dialogflow_api(answer)
+                        response = reply_using_dialogflow_api(answer)
 
                         if not response.query_result.intent.is_fallback:
                             answer = response.query_result.fulfillment_text
