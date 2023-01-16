@@ -20,7 +20,6 @@ def main():
 
     try:
         for event in longpoll.listen():
-            global answer
             if event.type == VkEventType.MESSAGE_NEW:
                 if event.to_me:
                     answer = event.text
