@@ -1,12 +1,15 @@
+from vk_api.longpoll import VkLongPoll, VkEventType
+from google_dialogflow_api import google_dialogflow_api
+from dotenv import load_dotenv
+
 import vk_api
 import os
 import telebot
 
-from vk_api.longpoll import VkLongPoll, VkEventType
-from google_dialogflow_api import google_dialogflow_api
 
+def main():
+    load_dotenv()
 
-def launch_vk_bot():
     vk_session = vk_api.VkApi(token=os.environ['VK_GROUP_TOKEN'])
 
     longpoll = VkLongPoll(vk_session)
@@ -34,3 +37,7 @@ def launch_vk_bot():
                             })
     except Exception as e:
         bot.send_message(os.environ['USER_TG_CHAT_ID'], str(e))
+
+
+if __name__ == '__main__':
+    main()

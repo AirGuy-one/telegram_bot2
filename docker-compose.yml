@@ -1,0 +1,11 @@
+services:
+  tg-bot-service:
+    build:
+      context: .
+    command: >
+      sh -c "python3 tg_bot.py"
+  vk-bot-service:
+    build:
+      context: .
+    command: >
+      sh -c "python3 vk_bot.py"

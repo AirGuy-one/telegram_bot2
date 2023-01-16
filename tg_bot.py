@@ -1,11 +1,14 @@
 from telebot import types
 from google_dialogflow_api import google_dialogflow_api
+from dotenv import load_dotenv
 
 import telebot
 import os
 
 
-def launch_tg_bot():
+def main():
+    load_dotenv()
+
     bot = telebot.TeleBot(
         os.environ.get('TG_BOT_TOKEN')
     )
@@ -27,3 +30,7 @@ def launch_tg_bot():
         bot.infinity_polling()
     except Exception as e:
         bot.send_message(os.environ['USER_TG_CHAT_ID'], str(e))
+
+
+if __name__ == '__main__':
+    main()
