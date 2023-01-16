@@ -21,19 +21,17 @@ def main():
     try:
         for event in longpoll.listen():
             if event.type == VkEventType.MESSAGE_NEW:
-                if event.to_me:
-                    answer = event.text
-                    if event.from_user:
-                        response = reply_using_dialogflow_api(answer)
+                answer = event.text
+                response = reply_using_dialogflow_api(answer)
 
-                        if not response.query_result.intent.is_fallback:
-                            answer = response.query_result.fulfillment_text
+                if not response.query_result.intent.is_fallback:
+                    answer = response.query_result.fulfillment_text
 
-                            vk_session.method('messages.send', {
-                                'user_id': event.user_id,
-                                'message': answer,
-                                'random_id': 0
-                            })
+                    vk_session.method('messages.send', {
+                        'user_id': event.user_id,
+                        'message': answer,
+                        'random_id': 0
+                    })
     except Exception as e:
         bot.send_message(os.environ['USER_TG_CHAT_ID'], str(e))
 
