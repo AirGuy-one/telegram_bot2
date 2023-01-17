@@ -22,7 +22,11 @@ def main():
 
     @bot.message_handler(content_types=['text'])
     def repeat_our_message(message):
-        response = reply_using_dialogflow_api(message.text)
+        response = reply_using_dialogflow_api(
+            message.text,
+            os.environ['DIALOG_FLOW_PROJECT_ID'],
+            os.environ['USER_TG_CHAT_ID']
+        )
 
         bot.send_message(message.chat.id, response.query_result.fulfillment_text)
 

@@ -1,13 +1,11 @@
 from google.cloud import dialogflow
 
-import os
 
-
-def reply_using_dialogflow_api(message):
+def reply_using_dialogflow_api(message, dialogflow_project_id, user_tg_chat_id):
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(
-        os.environ['DIALOG_FLOW_PROJECT_ID'],
-        os.environ['USER_TG_CHAT_ID']
+        dialogflow_project_id,
+        user_tg_chat_id
     )
 
     text_input = dialogflow.TextInput(text=message, language_code='en-US')

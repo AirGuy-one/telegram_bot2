@@ -22,7 +22,11 @@ def main():
         for event in longpoll.listen():
             if event.type == VkEventType.MESSAGE_NEW:
                 answer = event.text
-                response = reply_using_dialogflow_api(answer)
+                response = reply_using_dialogflow_api(
+                    answer,
+                    os.environ['DIALOG_FLOW_PROJECT_ID'],
+                    os.environ['USER_TG_CHAT_ID']
+                )
 
                 if not response.query_result.intent.is_fallback:
                     answer = response.query_result.fulfillment_text
